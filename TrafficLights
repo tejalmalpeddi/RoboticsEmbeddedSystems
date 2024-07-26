@@ -1,0 +1,56 @@
+const int MainRed = 0;
+const int MainYellow = 1;
+const int MainGreen = 2;
+
+const int SideRed = 6;
+const int SideYellow = 7;
+const int SideGreen = 8;
+
+void setup() {
+  // Initialize the pins as outputs
+  pinMode(MainRed, OUTPUT);
+  pinMode(MainYellow, OUTPUT);
+  pinMode(MainGreen, OUTPUT);
+
+  pinMode(SideRed, OUTPUT);
+  pinMode(SideYellow, OUTPUT);
+  pinMode(SideGreen, OUTPUT);
+
+  // Start with Main green and Side red
+  digitalWrite(MainGreen, HIGH);
+  digitalWrite(MainYellow, LOW);
+  digitalWrite(MainRed, LOW);
+  digitalWrite(SideGreen, LOW);
+  digitalWrite(SideYellow, LOW);
+  digitalWrite(SideRed, HIGH);
+}
+
+void loop() {
+  // Main green ON for 5 seconds, Side red ON
+  digitalWrite(MainGreen, HIGH);
+  digitalWrite(MainYellow, LOW);
+  digitalWrite(MainRed, LOW);
+  digitalWrite(SideGreen, LOW);
+  digitalWrite(SideYellow, LOW);
+  digitalWrite(SideRed, HIGH);
+  delay(5000);
+
+  // Main yellow ON for 1 second, Side red ON
+  digitalWrite(MainGreen, LOW);
+  digitalWrite(MainYellow, HIGH);
+  delay(1000);
+
+  // Main red ON for 3 seconds, Side green ON
+  digitalWrite(MainYellow, LOW);
+  digitalWrite(MainRed, HIGH);
+  digitalWrite(SideRed, LOW);
+  digitalWrite(SideGreen, HIGH);
+  delay(3000);
+
+  // Reset to initial state
+  digitalWrite(MainRed, LOW);
+  digitalWrite(MainGreen, HIGH);
+  digitalWrite(SideGreen, LOW);
+  digitalWrite(SideRed, HIGH);
+  delay(100);  // Brief delay for clear transition
+}
